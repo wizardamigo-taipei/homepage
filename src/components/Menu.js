@@ -4,15 +4,15 @@ class Menu extends React.Component {
     state = { data : [] }
 
     componentDidMount() {
-        this.renderHome()
+        this.renderData()
     }
 
-    renderHome = async () => {
+    renderData = async () => {
         const response = await fetch('https://okz.moe/wizardamigos/wp-json/menus/v1/menus/2')
             .then(res => res.json())
             .then(data => data.items)
 
-        this.setState({ data:response })
+        this.setState({ data: response })
     }
 
     clickMenuTap = (ind) => {
