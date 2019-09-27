@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 
 class MenuBar extends React.Component {
     state = { data : [], selectedTab: '' }
 
     componentDidMount() {
+        this.setState({selectedTab: 'Home'})
         this.renderData()
     }
 
@@ -17,15 +19,24 @@ class MenuBar extends React.Component {
     }
 
     clickMenuTab = (ind) => {
-        console.log(this.state.data[ind])
-        return this.state.data[ind]
+        this.setState({selectedTab: this.state.data[ind].title})
+        console.log(this.state.selectedTab.toLowerCase())
+        
+        let { selectedTab } = this.state
+        let nav = selectedTab.toLowerCase() === 'home' ? '/' : '/'+selectedTab.toLowerCase()
+        console.log(nav)
+        return (
+            <Link to={nav} 
+                tabValues={this.state.data[ind]}
+            />
+        )
     }
 
     displayContent = () => {
         return (
             <Menu secondary>
                 {this.state.data.map((el, index) => (
-                    <Menu.Item active={this.state.selectedTab} onClick={() => this.clickMenuTap(index)} key={index}>{el.title}</Menu.Item>
+                    <Menu.Item name={`${el.title}`} active={this.state.selectedTab === el.title} onClick={() => this.clickMenuTab(index)} key={index}>{el.title}</Menu.Item>
                 ))}
             </Menu>
         )
