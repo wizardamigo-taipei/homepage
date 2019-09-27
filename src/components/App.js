@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import { Container } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
@@ -10,7 +11,12 @@ function App() {
   return (
     <Container>
       <header className="App-header">WizardAmigos Taipei</header>
-      <Menu />
+        <Menu />
+        <Router>
+          <Route>
+
+          </Route>
+        </Router>
     </Container>
   )
 }

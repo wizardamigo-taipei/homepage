@@ -15,11 +15,16 @@ class Menu extends React.Component {
         this.setState({ data:response })
     }
 
+    clickMenuTap = (ind) => {
+        console.log(this.state.data[ind])
+        return this.state.data[ind]
+    }
+
     displayContent = () => {
         return (
             <ul>
-                {this.state.data.map((el,index) => (
-                    <li key={index}>{el.title}</li>    
+                {this.state.data.map((el, index) => (
+                    <li onClick={() => this.clickMenuTap(index)} key={index}>{el.title}</li>    
                 ))}
             </ul>
         )
