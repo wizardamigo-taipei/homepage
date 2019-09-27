@@ -7,6 +7,7 @@ import 'semantic-ui-css/semantic.min.css'
 import MenuBar from './Menu'
 import Home from './Home'
 import Events from './Events'
+import About from 'about'
 import News from './News'
 import Contact from './Contact'
 
@@ -18,6 +19,7 @@ const App = () => {
         <Router>
           <Route path="/" exact component={Home}/>
           <Route path="/events" exact component={Events} />
+          <Route path="/about" exact component={About} />
           <Route path="/news" exact component={News} />
           <Route path="/contact" exact component={Contact} />
         </Router>
