@@ -1,7 +1,8 @@
 import React from 'react'
+import { Menu } from 'semantic-ui-react'
 
-class Menu extends React.Component {
-    state = { data : [] }
+class MenuBar extends React.Component {
+    state = { data : [], selectedTab: '' }
 
     componentDidMount() {
         this.renderData()
@@ -15,18 +16,18 @@ class Menu extends React.Component {
         this.setState({ data: response })
     }
 
-    clickMenuTap = (ind) => {
+    clickMenuTab = (ind) => {
         console.log(this.state.data[ind])
         return this.state.data[ind]
     }
 
     displayContent = () => {
         return (
-            <ul>
+            <Menu secondary>
                 {this.state.data.map((el, index) => (
-                    <li onClick={() => this.clickMenuTap(index)} key={index}>{el.title}</li>    
+                    <Menu.Item active={this.state.selectedTab} onClick={() => this.clickMenuTap(index)} key={index}>{el.title}</Menu.Item>
                 ))}
-            </ul>
+            </Menu>
         )
     }
 
@@ -37,4 +38,4 @@ class Menu extends React.Component {
     }
 }
 
-export default Menu
+export default MenuBar
