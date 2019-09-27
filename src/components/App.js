@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-// import { Container } from 'semantic-ui-react'
-// import 'semantic-ui-css/semantic.min.css'
+import { Container } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
 
 import Menu from './Menu'
 
