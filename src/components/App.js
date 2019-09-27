@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { Container } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
-import Menu from './Menu'
+import Menu, { selectedTab } from './Menu'
 import Home from './Home'
 import Events from './Events'
 import News from './News'
@@ -15,6 +15,7 @@ function App() {
     <Container>
       <header className="App-header">WizardAmigos Taipei</header>
       <Menu />
+
       <Router>
         <Route path="/" exact component={Home} />
         <Route path="/events" exact component={Events} />
