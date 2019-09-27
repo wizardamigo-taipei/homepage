@@ -17,28 +17,34 @@ class MenuBar extends React.Component {
 
         this.setState({ data: response })
     }
-
     clickMenuTab = (ind) => {
         this.setState({selectedTab: this.state.data[ind].title})
-        console.log(this.state.selectedTab.toLowerCase())
-        
-        let { selectedTab } = this.state
-        let nav = selectedTab.toLowerCase() === 'home' ? '/' : '/'+selectedTab.toLowerCase()
-        console.log(nav)
-        return (
-            <Link to={nav} 
-                tabValues={this.state.data[ind]}
-            />
-        )
+        return this.state.data[ind]
     }
-
+        
+        
     displayContent = () => {
+        // /  {/* </Menu> */}
+    // <Menu secondary>
         return (
-            <Menu secondary>
-                {this.state.data.map((el, index) => (
-                    <Menu.Item name={`${el.title}`} active={this.state.selectedTab === el.title} onClick={() => this.clickMenuTab(index)} key={index}>{el.title}</Menu.Item>
-                ))}
-            </Menu>
+             <div className="ui secondary menu">
+
+            {this.state.data.map((el, index) => {
+                
+                console.log(this.state.selectedTab)
+                // console.log(el.title)
+                return (
+                    // <Menu.Item name={`${el.title}`} active={this.state.selectedTab === el.title} onClick={() => this.clickMenuTab(index)} key={index}>
+                    <div className={`${this.state.selectedTab === el.title ? 'active' : ''} item`} key={index}>
+
+                    <Link 
+                        to={el.title === 'Home' ? '/' : `/${el.title.toLowerCase()}`} 
+                        >{el.title}</Link>
+                    </div>
+                    // </Menu.Item>
+                    )}
+                )}
+           </div>
         )
     }
 

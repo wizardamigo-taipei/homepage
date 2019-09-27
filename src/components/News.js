@@ -1,6 +1,7 @@
 import React from 'react'
 
-const News = () => {
+const News = (props) => {
+    console.log(props)
     return (
         <div>
             news

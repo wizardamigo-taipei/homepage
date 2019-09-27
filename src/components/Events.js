@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Events = () => {
+const Events = (props) => {
+    console.log(props)
     return (
         <div>
             Events
