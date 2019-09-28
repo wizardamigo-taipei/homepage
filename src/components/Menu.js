@@ -22,27 +22,18 @@ class MenuBar extends React.Component {
         return this.state.data[ind]
     }
         
-        
     displayContent = () => {
-        // /  {/* </Menu> */}
-    // <Menu secondary>
         return (
-             <div className="ui secondary menu">
-
-            {this.state.data.map((el, index) => {
-                
-                console.log(this.state.selectedTab)
-                // console.log(el.title)
-                return (
+            <div className="ui secondary menu">
+                {this.state.data.map((el, index) => (
                     // <Menu.Item name={`${el.title}`} active={this.state.selectedTab === el.title} onClick={() => this.clickMenuTab(index)} key={index}>
-                    <div className={`${this.state.selectedTab === el.title ? 'active' : ''} item`} key={index}>
-
-                    <Link 
-                        to={el.title === 'Home' ? '/' : `/${el.title.toLowerCase()}`} 
+                    <div key={index} onClick={() => this.clickMenuTab(index)}>
+                        <Link 
+                            className={`${this.state.selectedTab === el.title ? 'active' : ''} item`}
+                            to={el.title === 'Home' ? '/' : `/${el.title.toLowerCase()}`}                        
                         >{el.title}</Link>
                     </div>
-                    // </Menu.Item>
-                    )}
+                    )
                 )}
            </div>
         )
