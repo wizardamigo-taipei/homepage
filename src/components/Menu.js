@@ -26,11 +26,12 @@ class MenuBar extends React.Component {
         return (
             <div className="ui secondary menu">
                 {this.state.data.map((el, index) => (
-                    // <Menu.Item name={`${el.title}`} active={this.state.selectedTab === el.title} onClick={() => this.clickMenuTab(index)} key={index}>
                     <div key={index} onClick={() => this.clickMenuTab(index)}>
                         <Link 
                             className={`${this.state.selectedTab === el.title ? 'active' : ''} item`}
-                            to={el.title === 'Home' ? '/' : `/${el.title.toLowerCase()}`}                        
+                            to={{ pathname: el.title === 'Home' ? '/' : `/${el.title.toLowerCase()}`,
+                                query: {tabData: this.state.data[index]}
+                            }}
                         >{el.title}</Link>
                     </div>
                     )
