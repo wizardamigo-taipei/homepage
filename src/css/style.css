@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.header {
+    text-align: center
+}
+#menu {
+    display: flex;
+    flex-direction: row
+}
+
+.sub-menu {
+    flex: 1;
+}

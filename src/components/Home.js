@@ -1,14 +1,15 @@
 import React from 'react'
 import {
-  Button,
-  Container,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  Segment
+  // Button,
+  // Container,
+  // Grid,
+  // Header,
+  // Icon,
+  // Image,
+  // Segment
 } from 'semantic-ui-react'
-const Home = () => {
+const Home = (props) => {
+  console.log(props)
   // const inn = () => {
   //   return (
   //     <Segment style={{ padding: '8em 0em' }} vertical>

@@ -18,7 +18,7 @@ const App = () => {
     <Router history={history}>
       <Container>
       <div>
-      <header className="App-header">WizardAmigos Taipei</header>
+      <h2 className="header">WizardAmigos Taipei</h2>
         <MenuBar />
         <Switch>
             <Route exact path="/" component={Home}/>

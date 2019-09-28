@@ -1,6 +1,7 @@
 import React from 'react'
+import '../css/style.css'
 import { Link } from 'react-router-dom'
-import { Menu } from 'semantic-ui-react'
+// import { Menu } from 'semantic-ui-react'
 
 class MenuBar extends React.Component {
     state = { data : [], selectedTab: '' }
@@ -24,9 +25,9 @@ class MenuBar extends React.Component {
         
     displayContent = () => {
         return (
-            <div className="ui secondary menu">
+            <div id='menu' className="ui top menu">
                 {this.state.data.map((el, index) => (
-                    <div key={index} onClick={() => this.clickMenuTab(index)}>
+                    <div className="sub-menu" key={index} onClick={() => this.clickMenuTab(index)}>
                         <Link 
                             className={`${this.state.selectedTab === el.title ? 'active' : ''} item`}
                             to={{ pathname: el.title === 'Home' ? '/' : `/${el.title.toLowerCase()}`,
