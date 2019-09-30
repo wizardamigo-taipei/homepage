@@ -1,7 +1,6 @@
 import React from 'react'
 import '../css/style.css'
 import { Link } from 'react-router-dom'
-// import { Menu } from 'semantic-ui-react'
 
 class MenuBar extends React.Component {
     state = { data : [], selectedTab: '' }
